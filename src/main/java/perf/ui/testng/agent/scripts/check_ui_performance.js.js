@@ -664,8 +664,8 @@ function checkInfo() {
 			marks: measures.length,
 			measures: marks.length
 	    },
-		windowSize: windowSize()
-
+        windowSize: windowSize(),
+        testStart: Math.round(timing.navigationStart - testStartTime)
 	}
 }
 
@@ -684,7 +684,7 @@ function checkPrivacy(){
 		return [score, offending]
 	}
 	return {
-		amp: [amp() ? 100 : 0, amp()],
+		amp: [amp() ? 0 : 100, amp()],
 		facebook: [window.FB ? 0 : 100, window.FB],
 		ga: [window.ga && window.ga.create ? 0 : 100, window.ga && window.ga.create],
 		https: [docUrl.indexOf('https://') === -1 ? 0 : 100, new URL(docUrl).protocol],
@@ -740,7 +740,7 @@ function checkTiming() {
 	        }
 	      }
 	    }
-	    return Math.max(firstPaint, 0);
+	    return Number(Math.max(firstPaint, 0).toFixed(0));
 	  };
 
 	function fullyLoaded(){

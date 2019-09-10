@@ -1,38 +1,25 @@
 package perf.ui.testng.agent;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.JavascriptExecutor;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestListener;
+import perf.ui.testng.agent.config.AuditConfig;
+import perf.ui.testng.agent.config.PerfUIConfig;
+import perf.ui.testng.agent.helper.PerfUIHelper;
+import perf.ui.testng.agent.http.PerfUIMetricSender;
 
-import java.io.File;
-import java.io.IOException;
+public class PerfUIMetricGrabber {
 
-public class PerfUIMetricGrabber implements ITestListener {
+    private PerfUIMetricSender metricSender;
 
-    private JavascriptExecutor jsExecutor;
-
+    public PerfUIMetricGrabber() {
+        metricSender = new PerfUIMetricSender(ConfigFactory.create(PerfUIConfig.class));
+    }
 
     public void startAudit(WebDriver driver){
-       this.jsExecutor = getJsExecutor(driver);
-       String result = getResult();
-    }
-
-    public static String loadScript(){
-        String result = "";
-        try {
-            result = FileUtils.readFileToString(new File("src/main/java/perf/ui/testng/agent/helper/audit_script_source.js"), "utf-8");
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(PerfUIHelper.isNeedRunAudit()){
+            AuditConfig auditConfig = PerfUIHelper.getAuditConfig();
+            String auditResult = PerfUIHelper.getAuditResult(driver,auditConfig.startTime());
+            metricSender.sendMetric(auditResult,auditConfig.videoPath(),auditConfig.testName());
         }
-        return result;
-    }
-
-    private JavascriptExecutor getJsExecutor(WebDriver driver){
-        return (JavascriptExecutor) driver;
-    }
-
-    private String getResult(){
-        return (String) jsExecutor.executeScript("return "+loadScript());
     }
 }
