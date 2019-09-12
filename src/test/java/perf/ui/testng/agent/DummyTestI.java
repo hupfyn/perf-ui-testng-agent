@@ -12,14 +12,17 @@ import perf.ui.testng.agent.annotations.PerfUI;
 import java.util.Objects;
 
 @Listeners(PerfUIListener.class)
-public class DummyTest {
+public class DummyTestI implements IPerfUIBaseTestClass {
 
     private WebDriver driver;
     private WebDriverWait waiter;
-    private PerfUIMetricGrabber perfUIMetricGrabber = new PerfUIMetricGrabber();
 
+    @Override
+    public WebDriver getDriver() {
+        return driver;
+    }
 
-    @BeforeSuite
+    @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -36,29 +39,25 @@ public class DummyTest {
     }
 
     @Test
+    @PerfUI
     public void AmazonSearchWithParameters_2() {
         driver.get("https://www.amazon.com/s?k=Fender+Jaguar");
-        waiter.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'fail')]")));
-        waiter.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'fail')]")));
+        waiter.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'results')]")));
+        waiter.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'results')]")));
     }
 
     @Test
+    @PerfUI
     public void AmazonSearchWithParameters_3() {
         driver.get("https://www.amazon.com/s?k=Fender+Stratocaster");
         waiter.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'results')]")));
         waiter.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'results')]")));
     }
 
-    @AfterTest
-    public void perfUiAnalise(){
-        perfUIMetricGrabber.startAudit(driver);
-    }
-
-    @AfterSuite
+    @AfterClass
     public void shutDown() {
         if (!Objects.isNull(driver)) {
             driver.quit();
         }
     }
-
 }
