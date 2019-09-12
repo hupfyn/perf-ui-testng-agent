@@ -8,10 +8,10 @@ import java.io.File;
 
 public class PerfUIVideoHelper {
 
-    public static String stopRecordig(ITestResult result, IVideoRecorder recorder,boolean testStatus){
+    public static String stopRecordig(ITestResult result, IVideoRecorder recorder){
         String fileName = getFileName(result);
         File file = recorder.stopAndSave(fileName);
-        return RecordingUtils.doVideoProcessing(testStatus,file);
+        return RecordingUtils.doVideoProcessing(true,file);
 
     }
     private static String getFileName(ITestResult result){

@@ -15,7 +15,6 @@ public class PerfUIListener extends TestListenerAdapter {
 
     private PerfUIMetricSender metricSender;
     private IVideoRecorder recorder;
-    private String videoPath;
     private long testStartTime;
 
     public PerfUIListener() {
@@ -33,19 +32,19 @@ public class PerfUIListener extends TestListenerAdapter {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        if (PerfUIHelper.checkIsAnnotation(result)) {
-            String auditResult = PerfUIHelper.getAuditResult(PerfUIHelper.getDriver(result),this.testStartTime);
-            this.videoPath = PerfUIVideoHelper.stopRecordig(result,this.recorder,true);
-            metricSender.sendMetric(auditResult,videoPath,PerfUIHelper.getTestName(result));
-        }
+        runAudit(result);
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        if (PerfUIHelper.checkIsAnnotation(result)) {
+        runAudit(result);
+    }
+
+    private void runAudit(ITestResult result){
+        if(PerfUIHelper.checkIsAnnotation(result)){
             String auditResult = PerfUIHelper.getAuditResult(PerfUIHelper.getDriver(result),this.testStartTime);
-            this.videoPath = PerfUIVideoHelper.stopRecordig(result,this.recorder,false);
-            metricSender.sendMetric(auditResult,videoPath,PerfUIHelper.getTestName(result));
+            String videoPath = PerfUIVideoHelper.stopRecordig(result, this.recorder);
+            metricSender.sendMetric(auditResult, videoPath,PerfUIHelper.getTestName(result));
         }
     }
 }

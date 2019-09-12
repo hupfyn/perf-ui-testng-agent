@@ -4,11 +4,7 @@
     <list default="true" id="14be412c-7576-4698-891e-a0d205a93f69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIMetricGrabber.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/config/AuditConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/scripts/check_ui_performance.js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/scripts/check_ui_performance.js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/perf/ui/testng/agent/DummyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/perf/ui/testng/agent/DummyTestI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIVideoHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIVideoHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resource/perfui.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resource/perfui.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,16 +16,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/perf/ui/testng/agent/DummyTestI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
+            <state relative-caret-position="143">
               <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#624#625#0" expanded="true" />
                 <element signature="e#653#654#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resource/perfui.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -43,23 +48,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+            <state relative-caret-position="135">
+              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1218#1219#0" expanded="true" />
+                <element signature="e#1244#1245#0" expanded="true" />
+                <element signature="e#1317#1318#0" expanded="true" />
+                <element signature="e#1349#1350#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/scripts/check_ui_performance.js.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="666" column="33" selection-start-line="666" selection-start-column="33" selection-end-line="666" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -79,10 +78,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/http/PerfUIMetricSender.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIVideoHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state relative-caret-position="255">
+              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,13 +90,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIVideoHelper.java">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/automation-remarks/video-recorder-core/2.0/video-recorder-core-2.0-sources.jar!/com/automation/remarks/video/RecordingUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="185">
+              <caret line="50" column="56" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -139,16 +135,16 @@
         <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/AuditConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/http/PerfUIMetricSender.java" />
         <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/scripts/audit_script_source.js" />
-        <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIVideoHelper.java" />
-        <option value="$PROJECT_DIR$/src/test/resource/perfui.properties" />
         <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/scripts/check_ui_performance.js.js" />
         <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIMetricGrabber.java" />
-        <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/perf/ui/testng/agent/DummyTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIBaseTestClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/IPerfUIBaseTestClass.java" />
         <option value="$PROJECT_DIR$/src/test/java/perf/ui/testng/agent/DummyTestI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIVideoHelper.java" />
+        <option value="$PROJECT_DIR$/src/test/resource/perfui.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIListener.java" />
       </list>
     </option>
   </component>
@@ -197,6 +193,11 @@
             <path>
               <item name="perf-ui-testng-agent" type="b2602c69:ProjectViewProjectNode" />
               <item name="perf-ui-testng-agent" type="462c0819:PsiDirectoryNode" />
+              <item name="PerfUiResult" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="perf-ui-testng-agent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="perf-ui-testng-agent" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -254,6 +255,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="resource" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="perf-ui-testng-agent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="perf-ui-testng-agent" type="462c0819:PsiDirectoryNode" />
+              <item name="video" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -263,7 +269,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568307472262" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568308574844" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3079123" />
@@ -361,15 +367,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DummyTest_AmazonSearchWithParameters_1 - 2019.09.12 at 19h 26m 39s.xml">
-      <configuration name="DummyTest.AmazonSearchWithParameters_1" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DummyTest_AmazonSearchWithParameters_1 - 2019.09.12 at 19h 29m 35s.xml">
-      <configuration name="DummyTest.AmazonSearchWithParameters_1" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DummyTest_AmazonSearchWithParameters_1 - 2019.09.12 at 19h 30m 13s.xml">
-      <configuration name="DummyTest.AmazonSearchWithParameters_1" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="DummyTest_AmazonSearchWithParameters_1 - 2019.09.12 at 19h 32m 16s.xml">
       <configuration name="DummyTest.AmazonSearchWithParameters_1" configurationId="TestNG" />
     </history-entry>
@@ -391,6 +388,15 @@
     <history-entry file="DummyTestI - 2019.09.12 at 19h 58m 24s.xml">
       <configuration name="DummyTestI" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="DummyTestI - 2019.09.12 at 20h 09m 47s.xml">
+      <configuration name="DummyTestI" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DummyTestI - 2019.09.12 at 20h 11m 08s.xml">
+      <configuration name="DummyTestI" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DummyTestI - 2019.09.12 at 20h 12m 07s.xml">
+      <configuration name="DummyTestI" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="992" extended-state="0" />
@@ -400,17 +406,17 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.33599573" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.33599573" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="1" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.32970297" />
-      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.3288889" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.3288889" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Run with VisualVM" order="5" weight="0.32970297" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3288889" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.47" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.47" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -516,19 +522,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/7.0.0/testng-7.0.0-sources.jar!/org/testng/internal/TestMethodWorker.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/7.0.0/testng-7.0.0-sources.jar!/org/testng/SuiteRunnerWorker.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/7.0.0/testng-7.0.0-sources.jar!/org/testng/ITestResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="68" column="9" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/7.0.0/testng-7.0.0-sources.jar!/org/testng/collections/Sets.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -701,13 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/automation-remarks/video-recorder-core/2.0/video-recorder-core-2.0-sources.jar!/com/automation/remarks/video/RecordingUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="64" column="57" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PerfUiResult/AmazonSearchWithParameters_1_1568212913799.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -717,13 +703,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PerfUiResult/AmazonSearchWithParameters_1_1568213419085.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resource/perfui.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/scripts/check_ui_performance.js.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -764,23 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/IPerfUIBaseTestClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIVideoHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="658">
@@ -800,16 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PerfUiResult/demo_1_1568307336861.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -825,14 +777,67 @@
     <entry file="file://$PROJECT_DIR$/PerfUiResult/AmazonSearchWithParameters_3_1568307504220.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/helper/PerfUIVideoHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/automation-remarks/video-recorder-core/2.0/video-recorder-core-2.0-sources.jar!/com/automation/remarks/video/RecordingUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="50" column="56" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/IPerfUIBaseTestClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/perf/ui/testng/agent/DummyTestI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
+        <state relative-caret-position="143">
           <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#624#625#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resource/perfui.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PerfUiResult/AmazonSearchWithParameters_2_1568308313743.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PerfUiResult/AmazonSearchWithParameters_1_1568308306717.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PerfUiResult/AmazonSearchWithParameters_3_1568308326677.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/perf/ui/testng/agent/PerfUIListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding>
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
           </folding>
         </state>
       </provider>
