@@ -6,7 +6,7 @@ import org.aeonbits.owner.Config.LoadPolicy;
 
 
 @LoadPolicy(Config.LoadType.FIRST)
-@Sources({ "classpath:perfui.properties"})
+@Sources({ "file:src/test/resource/perfui.properties"})
 public interface PerfUIConfig extends Config {
 
     @Key("perfui.host")

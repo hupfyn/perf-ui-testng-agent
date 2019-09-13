@@ -12,7 +12,7 @@ import perf.ui.testng.agent.annotations.PerfUI;
 import java.util.Objects;
 
 @Listeners(PerfUIListener.class)
-public class DummyTestI implements IPerfUIBaseTestClass {
+public class DummyTest implements IPerfUIBaseTestClass {
 
     private WebDriver driver;
     private WebDriverWait waiter;

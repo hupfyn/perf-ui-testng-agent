@@ -11,7 +11,7 @@ public class PerfUIVideoHelper {
     public static String stopRecordig(ITestResult result, IVideoRecorder recorder){
         String fileName = getFileName(result);
         File file = recorder.stopAndSave(fileName);
-        return RecordingUtils.doVideoProcessing(true,file);
+        return RecordingUtils.doVideoProcessing(false,file);
 
     }
     private static String getFileName(ITestResult result){
