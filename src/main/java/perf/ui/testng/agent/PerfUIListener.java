@@ -3,6 +3,8 @@ package perf.ui.testng.agent;
 import com.automation.remarks.video.RecorderFactory;
 import com.automation.remarks.video.enums.RecorderType;
 import com.automation.remarks.video.recorder.IVideoRecorder;
+import com.automation.remarks.video.recorder.VideoConfiguration;
+import com.automation.remarks.video.recorder.VideoRecorder;
 import org.aeonbits.owner.ConfigFactory;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;

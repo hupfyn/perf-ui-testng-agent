@@ -12,6 +12,7 @@ import perf.ui.testng.agent.config.PerfUIConfig;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Objects;
 
 public class PerfUIHelper {
 
@@ -64,6 +65,8 @@ public class PerfUIHelper {
     public static void setConfigValueForRecorder(PerfUIConfig config){
         System.setProperty("video.save.mode","ALL");
         System.setProperty("video.frame.rate",config.frameRate());
-        System.setProperty("ffmpeg.display",config.videoDisplay());
+        if(Objects.nonNull(config.videoDisplay())){
+            System.setProperty("ffmpeg.display",config.videoDisplay());
+        }
     }
 }

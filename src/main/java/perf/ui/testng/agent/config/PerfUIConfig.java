@@ -22,6 +22,5 @@ public interface PerfUIConfig extends Config {
     String frameRate();
 
     @Key("video.display")
-    @DefaultValue("0")
     String videoDisplay();
 }
