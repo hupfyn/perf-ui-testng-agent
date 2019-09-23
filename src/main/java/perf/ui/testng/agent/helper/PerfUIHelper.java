@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import perf.ui.testng.agent.IPerfUIBaseTestClass;
 import perf.ui.testng.agent.annotations.PerfUI;
+import perf.ui.testng.agent.config.PerfUIConfig;
 
 import java.io.File;
 import java.io.IOException;
@@ -58,5 +59,11 @@ public class PerfUIHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setConfigValueForRecorder(PerfUIConfig config){
+        System.setProperty("video.save.mode","ALL");
+        System.setProperty("video.frame.rate",config.frameRate());
+        System.setProperty("ffmpeg.display",config.videoDisplay());
     }
 }

@@ -19,6 +19,7 @@ public class PerfUIMetricSender {
 
     public PerfUIMetricSender(PerfUIConfig config) {
         this.config = config;
+        PerfUIHelper.setConfigValueForRecorder(config);
     }
 
     public void sendMetric(String dataToSend, String videoPath, String testName) {
@@ -33,7 +34,7 @@ public class PerfUIMetricSender {
     }
 
     private String getHostAddress(){
-        return config.protocol() + "://" + config.host() +":"+config.port()+ "/perfui/analyze";
+        return config.webHook();
     }
 
     private HttpEntity generateRequestBody(String dataToSend, File file){

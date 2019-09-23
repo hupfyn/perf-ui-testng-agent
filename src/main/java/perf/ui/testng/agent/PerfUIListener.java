@@ -18,8 +18,8 @@ public class PerfUIListener extends TestListenerAdapter {
     private long testStartTime;
 
     public PerfUIListener() {
-        this.recorder = RecorderFactory.getRecorder(RecorderType.FFMPEG);
         this.metricSender = new PerfUIMetricSender(ConfigFactory.create(PerfUIConfig.class));
+        this.recorder = RecorderFactory.getRecorder(RecorderType.FFMPEG);
     }
 
     @Override
