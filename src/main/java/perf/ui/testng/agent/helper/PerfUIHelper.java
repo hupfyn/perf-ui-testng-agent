@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpResponse;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.ITestResult;
 import perf.ui.testng.agent.IPerfUIBaseTestClass;
 import perf.ui.testng.agent.annotations.PerfUI;
@@ -44,12 +45,26 @@ public class PerfUIHelper {
         return result;
     }
 
+    private static String getPolyFill(){
+        String polyFillScript = "";
+        try {
+            polyFillScript = FileUtils.readFileToString(new File("perf/ui/testng/agent/scripts/polyfill_ie11.js"), "utf-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return polyFillScript;
+
+    }
+
     public static WebDriver getDriver(ITestResult result){
         return ((IPerfUIBaseTestClass)result.getInstance()).getDriver();
     }
 
     public static String getAuditResult(WebDriver driver,long startTime){
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        if (driver instanceof InternetExplorerDriver){
+            jsExecutor.executeScript(getPolyFill());
+        }
         return (String) jsExecutor.executeScript(String.format("var testStartTimestamp=%d; return %s", startTime, getScript()));
     }
 
