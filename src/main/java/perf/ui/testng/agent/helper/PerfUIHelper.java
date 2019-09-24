@@ -48,7 +48,7 @@ public class PerfUIHelper {
     private static String getPolyFill(){
         String polyFillScript = "";
         try {
-            polyFillScript = FileUtils.readFileToString(new File("perf/ui/testng/agent/scripts/polyfill_ie11.js"), "utf-8");
+            polyFillScript = FileUtils.readFileToString(new File("src/main/java/perf/ui/testng/agent/scripts/polyfill_ie11.js"), "utf-8");
         } catch (IOException e) {
             e.printStackTrace();
         }
