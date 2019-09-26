@@ -5,18 +5,21 @@ import org.apache.http.HttpResponse;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import perf.ui.testng.agent.IPerfUIBaseTestClass;
 import perf.ui.testng.agent.annotations.PerfUI;
-import perf.ui.testng.agent.config.PerfUIConfig;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.Objects;
 
 public class PerfUIHelper {
 
+    private static File auditScriptFile = new File("src/main/java/perf/ui/testng/agent/scripts/check_ui_performance.js.js");
+    private static File polyFillFile = new File("src/main/java/perf/ui/testng/agent/scripts/polyfill_ie11.js");
+    private static File isPageLoadScript = new File("src/main/java/perf/ui/testng/agent/scripts/page_really_loaded.js");
 
     public static boolean checkIsAnnotation(ITestResult result){
         return result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(PerfUI.class) != null;
@@ -35,37 +38,35 @@ public class PerfUIHelper {
         return new Date().getTime();
     }
 
-    private static String getScript(){
-        String result = "";
+    private static String getScriptCode(File file){
+        String script = "";
         try {
-            result = FileUtils.readFileToString(new File("src/main/java/perf/ui/testng/agent/scripts/check_ui_performance.js.js"), "utf-8");
+            script = FileUtils.readFileToString(file, "utf-8");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return result;
+        return script;
     }
 
-    private static String getPolyFill(){
-        String polyFillScript = "";
-        try {
-            polyFillScript = FileUtils.readFileToString(new File("src/main/java/perf/ui/testng/agent/scripts/polyfill_ie11.js"), "utf-8");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return polyFillScript;
-
-    }
 
     public static WebDriver getDriver(ITestResult result){
         return ((IPerfUIBaseTestClass)result.getInstance()).getDriver();
     }
 
-    public static String getAuditResult(WebDriver driver,long startTime){
+    private static void checkIsPageReallyLoaded(WebDriver driver, int timeOut){
+        Wait<WebDriver> wait = new WebDriverWait(driver, timeOut);
+        wait.until(webDriver -> String
+                .valueOf(((JavascriptExecutor) webDriver).executeScript(String.format("return %s", getScriptCode(isPageLoadScript))))
+                .equals("true"));
+    }
+
+    public static String getAuditResult(WebDriver driver,long startTime, int loadTimeOut){
+        checkIsPageReallyLoaded(driver,loadTimeOut);
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         if (driver instanceof InternetExplorerDriver){
-            jsExecutor.executeScript(getPolyFill());
+            jsExecutor.executeScript(getScriptCode(polyFillFile));
         }
-        return (String) jsExecutor.executeScript(String.format("var testStartTimestamp=%d; return %s", startTime, getScript()));
+        return (String) jsExecutor.executeScript(String.format("var testStartTimestamp=%d; return %s", startTime, getScriptCode(auditScriptFile)));
     }
 
 
@@ -74,14 +75,6 @@ public class PerfUIHelper {
             FileUtils.copyInputStreamToFile(response.getEntity().getContent(),new File(getReportName(testName,folder)));
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    public static void setConfigValueForRecorder(PerfUIConfig config){
-        System.setProperty("video.save.mode","ALL");
-        System.setProperty("video.frame.rate",config.frameRate());
-        if(Objects.nonNull(config.videoDisplay())){
-            System.setProperty("ffmpeg.display",config.videoDisplay());
         }
     }
 }

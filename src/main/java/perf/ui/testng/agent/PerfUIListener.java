@@ -3,8 +3,6 @@ package perf.ui.testng.agent;
 import com.automation.remarks.video.RecorderFactory;
 import com.automation.remarks.video.enums.RecorderType;
 import com.automation.remarks.video.recorder.IVideoRecorder;
-import com.automation.remarks.video.recorder.VideoConfiguration;
-import com.automation.remarks.video.recorder.VideoRecorder;
 import org.aeonbits.owner.ConfigFactory;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
@@ -18,9 +16,12 @@ public class PerfUIListener extends TestListenerAdapter {
     private PerfUIMetricSender metricSender;
     private IVideoRecorder recorder;
     private long testStartTime;
+    private int loadTimeOut;
 
     public PerfUIListener() {
-        this.metricSender = new PerfUIMetricSender(ConfigFactory.create(PerfUIConfig.class));
+        PerfUIConfig perfUIConfig = ConfigFactory.create(PerfUIConfig.class);
+        this.loadTimeOut = perfUIConfig.loadTimeOut();
+        this.metricSender = new PerfUIMetricSender(perfUIConfig);
         this.recorder = RecorderFactory.getRecorder(RecorderType.FFMPEG);
     }
 
@@ -44,7 +45,7 @@ public class PerfUIListener extends TestListenerAdapter {
 
     private void runAudit(ITestResult result){
         if(PerfUIHelper.checkIsAnnotation(result)){
-            String auditResult = PerfUIHelper.getAuditResult(PerfUIHelper.getDriver(result),this.testStartTime);
+            String auditResult = PerfUIHelper.getAuditResult(PerfUIHelper.getDriver(result),this.testStartTime,this.loadTimeOut);
             String videoPath = PerfUIVideoHelper.stopRecordig(result, this.recorder);
             metricSender.sendMetric(auditResult, videoPath,PerfUIHelper.getTestName(result));
         }

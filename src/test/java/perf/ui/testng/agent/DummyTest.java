@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
@@ -32,6 +33,12 @@ public class DummyTest implements IPerfUIBaseTestClass {
 
     @Test
     @PerfUI
+    public void Yahoo() {
+        driver.get("https://www.yahoo.com/");
+    }
+
+    @Test
+    @PerfUI
     public void AmazonSearchWithParameters_1() {
         driver.get("https://www.amazon.com/s?k=Fender+Jazz+Bass");
         waiter.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'results')]")));
@@ -56,7 +63,7 @@ public class DummyTest implements IPerfUIBaseTestClass {
 
     @AfterClass
     public void shutDown() {
-        if (!Objects.isNull(driver)) {
+        if (Objects.nonNull(driver)) {
             driver.quit();
         }
     }
