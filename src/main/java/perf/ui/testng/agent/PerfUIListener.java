@@ -43,11 +43,11 @@ public class PerfUIListener extends TestListenerAdapter {
         runAudit(result);
     }
 
-    private void runAudit(ITestResult result){
-        if(PerfUIHelper.checkIsAnnotation(result)){
-            String auditResult = PerfUIHelper.getAuditResult(PerfUIHelper.getDriver(result),this.testStartTime,this.loadTimeOut);
+    private void runAudit(ITestResult result) {
+        if (PerfUIHelper.checkIsAnnotation(result)) {
+            String auditResult = PerfUIHelper.getAuditResult(PerfUIHelper.getDriver(result), this.testStartTime, this.loadTimeOut);
             String videoPath = PerfUIVideoHelper.stopRecordig(result, this.recorder);
-            metricSender.sendMetric(auditResult, videoPath,PerfUIHelper.getTestName(result));
+            metricSender.sendMetric(auditResult, videoPath, PerfUIHelper.getTestName(result));
         }
     }
 }

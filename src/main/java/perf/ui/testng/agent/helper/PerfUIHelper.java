@@ -21,16 +21,16 @@ public class PerfUIHelper {
     private static File polyFillFile = new File("src/main/java/perf/ui/testng/agent/scripts/polyfill_ie11.js");
     private static File isPageLoadScript = new File("src/main/java/perf/ui/testng/agent/scripts/page_really_loaded.js");
 
-    public static boolean checkIsAnnotation(ITestResult result){
+    public static boolean checkIsAnnotation(ITestResult result) {
         return result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(PerfUI.class) != null;
     }
 
-    public static String getTestName(ITestResult result){
+    public static String getTestName(ITestResult result) {
         String annotationName = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(PerfUI.class).name();
-        return annotationName.equals("")?result.getName():annotationName;
+        return annotationName.equals("") ? result.getName() : annotationName;
     }
 
-    private static String getReportName(String testName,String folder){
+    private static String getReportName(String testName, String folder) {
         return String.format("%s/%s_%d.html", folder, testName, getTime());
     }
 
@@ -38,7 +38,7 @@ public class PerfUIHelper {
         return new Date().getTime();
     }
 
-    private static String getScriptCode(File file){
+    private static String getScriptCode(File file) {
         String script = "";
         try {
             script = FileUtils.readFileToString(file, "utf-8");
@@ -49,31 +49,39 @@ public class PerfUIHelper {
     }
 
 
-    public static WebDriver getDriver(ITestResult result){
-        return ((IPerfUIBaseTestClass)result.getInstance()).getDriver();
+    public static WebDriver getDriver(ITestResult result) {
+        return ((IPerfUIBaseTestClass) result.getInstance()).getDriver();
     }
 
-    private static void checkIsPageReallyLoaded(WebDriver driver, int timeOut){
+    private static void checkIsPageReallyLoaded(WebDriver driver, int timeOut) {
         Wait<WebDriver> wait = new WebDriverWait(driver, timeOut);
         wait.until(webDriver -> String
                 .valueOf(((JavascriptExecutor) webDriver).executeScript(String.format("return %s", getScriptCode(isPageLoadScript))))
                 .equals("true"));
     }
 
-    public static String getAuditResult(WebDriver driver,long startTime, int loadTimeOut){
-        checkIsPageReallyLoaded(driver,loadTimeOut);
+    public static String getAuditResult(WebDriver driver, long startTime, int loadTimeOut) {
+        checkIsPageReallyLoaded(driver, loadTimeOut);
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        if (driver instanceof InternetExplorerDriver){
+        if (driver instanceof InternetExplorerDriver) {
             jsExecutor.executeScript(getScriptCode(polyFillFile));
         }
         return (String) jsExecutor.executeScript(String.format("var testStartTimestamp=%d; return %s", startTime, getScriptCode(auditScriptFile)));
     }
 
 
-    public static void writeHtmlToFile(HttpResponse response, String testName, String folder){
+    public static void writeHtmlToFile(HttpResponse response, String testName, String folder) {
         try {
-            FileUtils.copyInputStreamToFile(response.getEntity().getContent(),new File(getReportName(testName,folder)));
+            FileUtils.copyInputStreamToFile(response.getEntity().getContent(), new File(getReportName(testName, folder)));
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void syncTimeout(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
